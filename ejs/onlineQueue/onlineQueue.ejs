@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/onlineQueue/onlineQueue.css">
+	<title>online-queue</title>
+</head>
+<body>
+	<header>
+		Записаться онлайн
+	</header>
+	<div class="wrapper">
+		<div class="main-content">
+			<div style="display: flex;" class="recording">
+				<h1>Заполните данные</h1><br>
+				<%-include('../components/input.ejs', {
+					type: 'text',
+					placeholder: 'polis',
+					name: 'polis',
+					id: 'polisInput'
+				}) %>
+				<%-include('../components/input.ejs', {
+					type: 'text',
+					placeholder: 'doctor',
+					name: 'doctor',
+					id: 'doctorInput'
+				}) %>
+				<%-include('../components/input.ejs', {
+					type: 'datetime-local',
+					placeholder: 'date',
+					name: 'date',
+					id: 'dateInput'
+				}) %>
+				<button class="button" id="send">send</button>
+			</div>
+			<div style="display: flex;" class="recording-confirm">
+				<h2 id="recording-confirm">Your name: </h2>
+				<div class="recording-buttons">
+					<button class="button" id="confirm">confirm</button>
+					<button class="button reset" id="reset">reset</button>
+				</div>
+			</div>
+			<div style="display: flex;" class="not-found">
+				<h2>not found</h2>
+				<button class="button reset">reset</button>
+			</div>
+			<div style="display: flex;" class="ticket-wrapper">
+				<div class="ticket">
+					<h1>Билет на прием</h1>
+					<div class="ticket-rows">
+						<div class="ticket-row">
+							<p class="ticket-row-title">your number: </p>
+							<p id="ticket-number"></p> 
+						</div>
+						<div class="ticket-row">
+							<p class="ticket-row-title">before: </p>
+							<p id="before-1" class="row-info"></p> 
+						</div>
+						<div class="ticket-row">
+							<p class="ticket-row-title">before: </p>
+							<p id="before-2" class="row-info"></p> 
+						</div>
+						<div class="ticket-row">
+							<p class="ticket-row-title">before: </p>
+							<p id="before-3" class="row-info"></p> 
+						</div>
+						<div id="doctor-row" class="ticket-row">
+							<p class="ticket-row-title">doctor: </p>
+							<p id="doctor" class="row-info"></p> 
+						</div>
+						<div class="ticket-row">
+							<p class="ticket-row-title">room nubmer: </p>
+							<p id="room" class="row-info"></p> 
+						</div>
+						<div class="ticket-row">
+							<p class="ticket-row-title">time: </p>
+							<p id="ticket-time" class="row-info"></p> 
+						</div>
+					</div>
+				</div>
+				<button id="done" class="button">done</button>
+			</div>
+		</div>
+		
+		<div class="doctors-list-wrapper">
+			<h2>doctor list</h2>
+			<div class="doctor-list">
+				<%-include('../components/doctor-list-row.ejs', {
+					doctorNumber: '1',
+					doctorName: 'aboba'
+				}) %>
+			</div>
+		</div>
+		
+	</div>
+	<script type="text/javascript" src="/onlineQueue/onlineQueue.js"></script>
+</body>
+</html>

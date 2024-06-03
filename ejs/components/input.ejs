@@ -1,0 +1,19 @@
+<div class="input-wrapper">
+	<input type="<%= type %>" value="" placeholder="<%= placeholder %>" id="<%= id %>">
+</div>
+
+<style>
+	.input-wrapper {
+		margin-bottom: calc((1vh + 1vw));
+		width: 100%;
+	}
+	input {
+		border: 1px black solid;
+		border-radius: 5px;
+		width: 100%;
+		background-color: inherit;
+		height: calc((1vh + 1vw) * 2);
+		padding-left: calc((1vh + 1vw) / 2);
+		font-size: calc((1vh + 1vw) * .9);
+	}
+</style>
