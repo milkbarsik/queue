@@ -3,6 +3,28 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+	::-webkit-scrollbar {
+		width: 0; /* ширина скроллбара */
+	}
+	
+	::-webkit-scrollbar-track { /* цвет дорожки скроллбара */
+		background-color: rgb(185, 255, 197);
+	}
+	
+	::-webkit-scrollbar-thumb {
+		background: rgb(113, 209, 129); /* цвет ползунка скроллбара */
+	}
+	
+	/* Изменение цвета ползунка скроллбара при наведении */
+	::-webkit-scrollbar-thumb:hover {
+		background: rgb(95, 177, 109);
+	}
+}
+
+body {
+	height: 100vh;
+	overflow: hidden;
 }
 
 header {
@@ -18,14 +40,15 @@ header {
 .wrapper {
 	display: flex;
 	width: 100%;
-	min-height: 100%;
+	height: 100%;
 }
 
 .main-content {
-	width: 70%;
+	width: 75%;
 	min-height: 100%;
 	border-right: 1px black solid;
 	padding: 2% 15%;
+	overflow-y: scroll;
 }
 
 .button {
@@ -135,21 +158,4 @@ header {
 	margin-top: calc((1vh + 1vw));
 	word-break: break-word;
 
-}
-
-.doctors-list-wrapper {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 30%;
-	min-height: 100%;
-	padding: 2% 0;
-}
-
-.doctor-list {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 0 2%;
 }

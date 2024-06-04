@@ -46,9 +46,12 @@ CREATE TABLE online_queue (
     id SERIAL PRIMARY KEY,
     patient_id INT REFERENCES patients(id) NOT NULL,
     doctor_id INT REFERENCES doctors(id) NOT NULL,
-    room VARCHAR(10),
-    time_of_visit TIMESTAMP NOT NULL
+    room INT,
+    time_of_visit TIMESTAMP NOT NULL,
+    CONSTRAINT unique_doctor_patient UNIQUE (doctor_id, patient_id),
+    CONSTRAINT unique_doctor_time UNIQUE (doctor_id, time_of_visit)
 );
+
 
 CREATE TABLE online_queue_log (
     id SERIAL PRIMARY KEY,

@@ -1,0 +1,43 @@
+<div class="doctors-list-wrapper">
+	<h2>doctors list</h2>
+	<div class="doctor-list">
+		<% doctors.forEach(doctor => { %>
+			<div class="doctor-list-row">
+				<p class="doctor-number"><%= doctor.id %></p>
+				<p class="doctor-name"><%= doctor.surname %> <%= doctor.name_of_doctor %> <%= doctor.last_name %> (<%= doctor.profession %>)</p>
+			</div>
+		<% }); %>
+	</div>
+</div>
+
+<style>
+	.doctors-list-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 25%;
+		min-height: 100%;
+		padding: 2% 0;
+		overflow-y: scroll;
+	}
+
+	.doctor-list {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: calc((1vh + 1vw) / 2) 5%;
+	}
+
+	.doctor-list-row {
+		display: flex;
+		width: 100%;
+		font-size: calc((1vh + 1vh) * 1.1);
+		word-break: break-word;
+		margin-bottom: calc((1vh + 1vw) / 2);
+	}
+
+	.doctor-number {
+		margin-right: calc((1vh + 1vw) / 2);
+	}
+</style>

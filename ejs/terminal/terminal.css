@@ -3,19 +3,42 @@
 	margin: 0;
 	box-sizing: border-box;
 	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+	::-webkit-scrollbar {
+		width: 0; /* ширина скроллбара */
+	}
+	
+	::-webkit-scrollbar-track { /* цвет дорожки скроллбара */
+		background-color: rgb(185, 255, 197);
+	}
+	
+	::-webkit-scrollbar-thumb {
+		background: rgb(113, 209, 129); /* цвет ползунка скроллбара */
+	}
+	
+	/* Изменение цвета ползунка скроллбара при наведении */
+	::-webkit-scrollbar-thumb:hover {
+		background: rgb(95, 177, 109);
+	}
 }
 
 body {
-	padding: 3%;
-	height: 100vh;
+height: 100vh;
 }
 
 .wrapper {
-	margin: 0 25%;
-	padding: 2%;
-	height: auto;
-	/*border: 1px black solid;
-	border-radius: 5px;*/
+	display: flex;
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+}
+
+.main-content {
+	width: 75%;
+	min-height: 100%;
+	border-right: 1px black solid;
+	padding: 2% 15%;
+	overflow-y: scroll;
 }
 
 .recording {

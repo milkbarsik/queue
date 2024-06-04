@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/onlineQueue/onlineQueue.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 	<title>online-queue</title>
 </head>
 <body>
@@ -21,8 +22,8 @@
 					id: 'polisInput'
 				}) %>
 				<%-include('../components/input.ejs', {
-					type: 'text',
-					placeholder: 'doctor',
+					type: 'number',
+					placeholder: 'doctor number',
 					name: 'doctor',
 					id: 'doctorInput'
 				}) %>
@@ -34,18 +35,18 @@
 				}) %>
 				<button class="button" id="send">send</button>
 			</div>
-			<div style="display: flex;" class="recording-confirm">
+			<div style="display: none;" class="recording-confirm">
 				<h2 id="recording-confirm">Your name: </h2>
 				<div class="recording-buttons">
 					<button class="button" id="confirm">confirm</button>
 					<button class="button reset" id="reset">reset</button>
 				</div>
 			</div>
-			<div style="display: flex;" class="not-found">
+			<div style="display: none;" class="not-found">
 				<h2>not found</h2>
 				<button class="button reset">reset</button>
 			</div>
-			<div style="display: flex;" class="ticket-wrapper">
+			<div style="display: none;" class="ticket-wrapper">
 				<div class="ticket">
 					<h1>Билет на прием</h1>
 					<div class="ticket-rows">
@@ -53,7 +54,7 @@
 							<p class="ticket-row-title">your number: </p>
 							<p id="ticket-number"></p> 
 						</div>
-						<div class="ticket-row">
+						<!-- <div class="ticket-row">
 							<p class="ticket-row-title">before: </p>
 							<p id="before-1" class="row-info"></p> 
 						</div>
@@ -64,7 +65,7 @@
 						<div class="ticket-row">
 							<p class="ticket-row-title">before: </p>
 							<p id="before-3" class="row-info"></p> 
-						</div>
+						</div> -->
 						<div id="doctor-row" class="ticket-row">
 							<p class="ticket-row-title">doctor: </p>
 							<p id="doctor" class="row-info"></p> 
@@ -83,15 +84,7 @@
 			</div>
 		</div>
 		
-		<div class="doctors-list-wrapper">
-			<h2>doctor list</h2>
-			<div class="doctor-list">
-				<%-include('../components/doctor-list-row.ejs', {
-					doctorNumber: '1',
-					doctorName: 'aboba'
-				}) %>
-			</div>
-		</div>
+		<%-include('../components/doctors-list.ejs') %>
 		
 	</div>
 	<script type="text/javascript" src="/onlineQueue/onlineQueue.js"></script>

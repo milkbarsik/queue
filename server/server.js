@@ -30,7 +30,9 @@ app.get('/', async (req, res) => {
 
 app.get('/terminal', async (req, res) => {
 	try {
-		res.render(createPath('terminal'));
+		const doctorsData = await fetch('http://localhost:7777/api/online-queue');
+		const doctors = await doctorsData.json();
+		res.render(createPath('terminal'), {doctors: doctors});
 	} catch (err) {
 		console.log(err);
 		res.status(500).send('Server error');
@@ -39,7 +41,9 @@ app.get('/terminal', async (req, res) => {
 
 app.get('/online-queue', async (req, res) => {
 	try {
-		res.render(createPath('onlineQueue'));
+		const doctorsData = await fetch('http://localhost:7777/api/online-queue');
+		const doctors = await doctorsData.json();
+		res.render(createPath('onlineQueue'), {doctors: doctors});
 	} catch (err) {
 		console.log(err);
 		res.status(500).send('Server error');

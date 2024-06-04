@@ -60,12 +60,12 @@ confirmButton.addEventListener('click', async () => {
 		const ticketTime = document.getElementById('ticket-time');
 		const doctorInfo = JSON.parse(sessionStorage.getItem('doctor'));
 
-		ticketNumber.innerText = `${ticketData.ticket.id}`;
+		ticketNumber.innerText = `${ticketData.ticket.id < 100 ? (ticketData.ticket.id < 10 ? `00${ticketData.ticket.id}`: `0${ticketData.ticket.id}`) : ticketData.ticket.id}`;
 		for (let i = 1; i < 4; i++) {
 			document.getElementById(`before-` + `${i}`).innerText = '';
 		}
 		for (let i = 0; i < ticketData.queueBefore.length; i++) {
-			document.getElementById(`before-` + `${i + 1}`).innerText = `${ticketData.queueBefore[i].id}`;
+			document.getElementById(`before-` + `${i + 1}`).innerText = `${ticketData.queueBefore[i].id < 100 ? (ticketData.queueBefore[i].id < 10 ? `00${ticketData.queueBefore[i].id}`: `0${ticketData.queueBefore[i].id}`) : ticketData.queueBefore[i].id}`;
 		}
 		doctor.innerText = `${doctorInfo.surname} ${doctorInfo.name_of_doctor} ${doctorInfo.last_name}`;
 		room.innerText = `${ticketData.ticket.room}`;
